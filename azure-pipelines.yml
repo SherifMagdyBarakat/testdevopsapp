@@ -8,6 +8,7 @@ trigger:
 
 pool:
   name: sherifpool
+  
 
 variables:
   solution: '**/*.sln'
@@ -28,7 +29,18 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: PublishBuildArtifacts@1
+
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'MSDN Platforms Subscription(0a8dbf35-3149-498d-a925-1291818d796b)'
+    appType: 'webApp'
+    WebAppName: 'sherifbarakat'
+    packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
