@@ -39,6 +39,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    azureSubscription: 'MSDN Platforms Subscription(0a8dbf35-3149-498d-a925-1291818d796b)'
     appType: 'webApp'
     WebAppName: 'sherifbarakat'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
