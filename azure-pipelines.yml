@@ -1,7 +1,8 @@
 trigger:
 - master 
 pool: 
-  name: az400m03l03a-pool
+  name: Default
+
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
