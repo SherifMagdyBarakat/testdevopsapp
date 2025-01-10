@@ -30,6 +30,7 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
+    azureSubscription: 'MSDN Platforms Subscription(1)(9a26c157-766d-4f46-8684-861804aef110)'
     appType: 'webApp'
     WebAppName: 'testappsherif'
     packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
